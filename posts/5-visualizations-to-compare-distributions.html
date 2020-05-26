@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://demo-embed.toucantoco.com/scripts/tctc-sdk.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="main-container">
+<br>
+<header>
+<span>May 20, 2020 - <a href="https://rhuille.github.io">Raphaël Huille</a></span><br><br>
+</header>
+<br>
+<h1>5 visualizations to compare distributions</h1>
+<p>
+    I have recently read this <a href="https://www.darkhorseanalytics.com/blog/visualizing-distributions-3">very cool article</a> which draws an inspiring inventory of distributions visualizations.
+    It motivated me to draw many visualizations to compare two distributions.
+    Listing many visualizations for the same message is actually a very good creativity exercise. 
+    I find it funny and I really encourage you to try it. 
+    <br>
+    <br>
+    For this experiment, I chose to compare the average hourly wages of French town by gender.
+    To simplify the visualization, I extract a random sample of 25 towns.
+    Thus, <span style="font-weight: 400;">I get the distribution of 25 men hourly average wages, and 25 women hourly average wages</span>. 
+    I got the data from <a href=https://www.insee.fr/fr/statistiques/2021266>Insee</a> and prepare its
+    with <a href="https://github.com/rhuille/rhuille.github.io/blob/master/scripts/pandas_script.py">this pandas script</a>
+    and I used <a href="https://toucantoco.com">the awesome Toucan Toco chart library</a>.
+    <br>
+    <br>
+    To distinguish the two distributions <span class="men">men are in blue</span> and <span class="women">women in red</span>.
+    Use the following filter to choose the distribution to display.
+    Here is my selection of 5 visualizations sorted by complexity.
+</p>
+
+<div class="app-requester">
+    <div class="app-requester-button app-requester-button--selected" onclick="myFunction('Both')"  value="Both">Both</div>
+    <div class="app-requester-button" onclick="myFunction('Women')" value="Women" >Women</div>
+    <div class="app-requester-button" onclick="myFunction('Men')" value="Men" >Men</div>
+</div>
+
+<!-- Simple plot -->
+<h2>
+    <a class="header-anchor" name="simple-plot" href="#simple-plot">#</a>
+    Simple plot
+</h2>
+<p>
+    Each datum are represented by a point. Very simple and quite straightforward.
+    I have tried to handle the overlap, without much success with color opacity.
+    This first preview let us presume that men hourly wage tend to be higher than women - inside the 50 random sample.
+</p>
+
+<div class="chart-container">
+<script async src="https://demo-embed.toucantoco.com/scripts/embedLauncher.js?id=5d805660-f7f4-4788-a5f6-d11c3007820c&view=Both&report=Both" type="text/javascript"></script>
+</div>
+
+<p>
+    To handle the overlap, it's a good trick to add a random vertical translation.
+    Inside the 50 random sample, men wages tend to be higher than women's.
+</p>
+<div class="chart-container">
+<script async src="https://demo-embed.toucantoco.com/scripts/embedLauncher.js?id=c9517b69-34c3-49b2-827c-6d13afb7afbb&view=Both&report=Both" type="text/javascript"></script>
+</div>
+
+<!-- Sorted data -->
+<h2 id="#sorted-data">
+    <a class="header-anchor" name="sorted-data" href="#sorted-data">#</a>
+    Sorted data
+</h2>
+
+<p>
+    Very easy to understand, this is my favorite visualization. 
+    Human love sorting stuff. It creates order and harmony without mislead the data.
+    Women are much more present on the right (small wages) and men are more present on the left (higher wages)
+</p>
+<div class="chart-container">
+<script async src="https://demo-embed.toucantoco.com/scripts/embedLauncher.js?id=ce513a24-30f4-4b29-98b9-fa97609c62fa&view=Both&report=Both" type="text/javascript"></script>
+</div>
+
+<p>
+    It's also possible to turn the bar in order to highlighting the top or the bottom.
+    Use the button <span class="horizontal-bar-chart__variation-legend-arrow-up-down"><img src="https://demo-embed.toucantoco.com/images/caret.617a62d6.svg"></span> 
+    to visualize either top or bottom.
+    I added the median of the total sample. Much more blue bar above the median and much more red below the median.
+</p>
+<div class="chart-container" style="height: 500px;">
+<script async src="https://demo-embed.toucantoco.com/scripts/embedLauncher.js?id=63fe058e-c220-485f-b5de-560a878e9621&view=Both&report=Both" type="text/javascript"></script>
+</div>
+<br>
+<br>
+
+<!-- n-to-n-comparisons -->
+<h2>
+    <a class="header-anchor" name="n-to-n-comparisons" href="#n-to-n-comparisons">#</a>
+    N to N Comparisons
+</h2>
+
+<p>
+    I think this is the most efficient methods. Comparing smallest value of each distribution, then second smallest value, and any n-th value of both distribution.
+    Here we see that smallest men hourly wage is greater than the smallest women hourly wage. Same, for second smallest, and same for all.
+</p>
+
+<div class="chart-container">
+<script async src="https://demo-embed.toucantoco.com/scripts/embedLauncher.js?id=5fae91c4-5e59-4cce-a42f-a05cd75a4a78&view=Both&report=Both" type="text/javascript"></script>
+</div>
+<br>
+
+<p>
+    We can replace bars by with lines. It gives continuity to the data which is not really suitable here.
+    But it make very clear that men wage (blue line) is above the women wage (red line).
+</p>
+<div class="chart-container">
+<script async src="https://demo-embed.toucantoco.com/scripts/embedLauncher.js?id=61b7ada8-88a0-407f-aa9d-501bb2d49546&view=Both&report=Both" type="text/javascript"></script>
+</div>
+
+<!-- cross histogram -->
+<h2>
+    <a class="header-anchor" name="cross-histogram" href="#cross-histogram">#</a>
+    Cross histograms
+</h2>
+
+<p>
+    Difficult to avoid histogram when considering distributions. Here my bins are: [10&euro;-12&euro;[, [12&euro;-14&euro;[ ...  until 34&euro;
+    The mode of the women distribution is the segment [10&euro;-12&euro;[ higher than the men mode [14&euro;-16&euro;[
+</p>
+
+<div class="chart-container">
+<script async src="https://demo-embed.toucantoco.com/scripts/embedLauncher.js?id=18280540-1e48-43a5-8592-c5fb9d7e655a&view=Both&report=Both" type="text/javascript"></script>
+</div>
+<br>
+<p>
+    Instead of absolute number, another option is to represent the percentage. I find it original on a heatmap.
+</p>
+<div class="chart-container">
+<script async src="https://demo-embed.toucantoco.com/scripts/embedLauncher.js?id=116a47c0-c68e-4d8a-ae70-5a10750e823d&view=Both&report=Both" type="text/javascript"></script>
+</div>
+
+<!-- cumulative distribution function -->
+<h2>
+    <a class="header-anchor" name="cumulative-distribution-function" href="#cumulative-distribution-function">#</a>
+    Cumulative distribution function
+</h2>
+<p>
+    "How many observations below this hourly wage ?" ...answer the cumulative distribution function answer.
+    Looking at this chart, I can tell you that around 20 women and 10 men got an hourly wage below 14&euro;
+</p>
+<div class="chart-container">
+<script async src="https://demo-embed.toucantoco.com/scripts/embedLauncher.js?id=de258c30-6fae-497b-b8ad-37db96f5229e&view=Both&report=Both" type="text/javascript"></script>
+</div>
+
+<h2>
+    <a class="header-anchor" name="conclusion" href="#conclusion">#</a>
+    Conclusion
+</h2>
+<p>
+    - Listing many visualizations for the same message is actually a very good creativity exercise.
+    I find it funny and I really encourage you to try it. Tell me which 
+    <br>
+    <br>
+    - Organizing the visualizations by the dimension added to the data -
+    <i>the rank</i> when you sort your data, <i>the count</i> for histogram - really helps to understand what is happing in your visualizations. 
+    It separate the concern of dimensions from the concern of shapes and colors.
+    <br>
+    <br>
+    - In my random sample, we see big inequalities between men wage and women wage. Actually no matter the random sample I took,
+    I always saw men wage higher than women wage.
+    <br>
+    <br>
+    <br>
+</p>
+<object data="../images/5 visualizations to compare distributions.svg" type="image/svg+xml"></object>
+
+<footer>
+Tool: <a href="https://toucantoco.com">the awesome Toucan Toco chart library</a><br><br>
+Source: <a href=https://www.insee.fr/fr/statistiques/2021266>Insee data</a> prepared with <a href="https://github.com/rhuille/rhuille.github.io/blob/master/scripts/pandas_script.py">this pandas script.</a>
+<br><br>
+    <span>May 20, 2020 - <a href="https://rhuille.github.io">Raphaël Huille</a></span>
+</footer>
+</div>
+
+<script>
+    function myFunction(v){
+        e = new TcTcEmbed()
+        e.setRequestersValue('APP_REPORT_REQUESTER_ID', v);
+        document.querySelector(".app-requester-button--selected").classList.toggle("app-requester-button--selected");
+        document.querySelector("[value="+v+"]").classList.toggle("app-requester-button--selected");
+
+    };
+</script>
+</body>
+<style>
+.header-anchor {
+    color: #ccc;
+    padding-top: 80px;
+}
+
+a {
+    color: steelblue;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+
+body {
+    margin: 0;
+    font-family: Montserrat;
+}
+
+
+p, footer, header {
+    font-weight: 300;
+    font-size: 12px;
+}
+
+h1 {
+    font-weight: 400;
+}
+
+h2 {
+    font-weight: 400;
+    background-color: white;
+    z-index: 10000;
+    padding: 10px 0px;
+    /* border-bottom: 1px #ebebeb solid; */
+}
+
+.main-container {
+    margin: auto;
+    width: 360px;
+}
+
+.women {
+    color: #ff6e6e; 
+    font-weight: 400;
+}
+.men {
+    color: #298dff; 
+    font-weight: 400;
+}
+
+.app-requester {
+    width: 360px;
+    display: flex;
+    position: sticky;
+    background-color: white;
+    padding: 20px;
+    top: 0;
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 10001;
+}
+
+.app-requester-button.app-requester-button--selected {
+    background-color: black;
+    color: white;
+}
+
+.app-requester-button {
+    border:1px solid black;
+    border-bottom:1px solid black;
+    width: 100%;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    padding: 10px 0px;
+}
+.app-requester-button:nth-child(3){
+    border-left: none;
+}
+.app-requester-button:nth-child(1){
+    border-right: none;
+}
+
+.chart-container {
+    border: 0; 
+    overflow: hidden;
+    height: 300px;
+    width: 360px;
+}
+
+@media only screen and (min-width: 400px) {
+    .chart-container, .main-container, .app-requester {
+        width: 400px;
+    }
+    p {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .chart-container, .main-container, .app-requester  {
+        width: 500px;
+    }
+    p {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .chart-container, .main-container, .app-requester  {
+        width: 600px;
+    }
+    p {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .chart-container, .main-container, .app-requester  {
+        width: 700px;
+    }
+    p {
+        font-size: 15px;
+    }
+}
+
+.horizontal-bar-chart__variation-legend-arrow-up-down {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: .2em;
+    width: 10px;
+    height: 9px;
+    border: 2px solid #939393;
+}
+
+.horizontal-bar-chart__variation-legend-arrow-up-down  img {
+    transition: all .3s ease;
+    height: 80%;
+    width: 80%;
+}
+
+footer {
+    font-size: 12px;
+    margin: 100px 0px;
+}
+</style>
+
+</html>
