@@ -2,7 +2,6 @@
 <html>
 <head>
 <script src="https://demo-embed.toucantoco.com/scripts/tctc-sdk.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -189,6 +188,25 @@ Source: <a href=https://www.insee.fr/fr/statistiques/2021266>Insee data</a> prep
 </script>
 </body>
 <style>
+body {
+    margin: 0;
+    line-height: 1.5em;
+}
+
+p, footer, header {
+    font-size: 16px;
+    font-family: 'Time New Roman', 'serif';
+}
+
+h1, h2, .app-requester {
+    font-weight: normal;
+    font-family: 'Verdana', 'sans-serif';
+}
+
+footer {
+    margin: 100px 0px;
+}
+
 .header-anchor {
     color: #ccc;
     padding-top: 80px;
@@ -200,30 +218,6 @@ a {
 }
 a:hover{
     text-decoration: underline;
-}
-
-
-body {
-    margin: 0;
-    font-family: Montserrat;
-}
-
-
-p, footer, header {
-    font-weight: 300;
-    font-size: 12px;
-}
-
-h1 {
-    font-weight: 400;
-}
-
-h2 {
-    font-weight: 400;
-    background-color: white;
-    z-index: 10000;
-    padding: 10px 0px;
-    /* border-bottom: 1px #ebebeb solid; */
 }
 
 .main-container {
@@ -285,7 +279,7 @@ h2 {
         width: 400px;
     }
     p {
-        font-size: 13px;
+        font-size: 16px;
     }
 }
 
@@ -294,7 +288,7 @@ h2 {
         width: 500px;
     }
     p {
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 
@@ -303,7 +297,7 @@ h2 {
         width: 600px;
     }
     p {
-        font-size: 15px;
+        font-size: 18px;
     }
 }
 
@@ -312,7 +306,7 @@ h2 {
         width: 700px;
     }
     p {
-        font-size: 15px;
+        font-size: 18px;
     }
 }
 
@@ -330,11 +324,6 @@ h2 {
     transition: all .3s ease;
     height: 80%;
     width: 80%;
-}
-
-footer {
-    font-size: 12px;
-    margin: 100px 0px;
 }
 </style>
 
