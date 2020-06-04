@@ -13,16 +13,17 @@
 <br>
 <h1>5 visualizations to compare distributions</h1>
 <p>
-    I have recently read this <a href="https://www.darkhorseanalytics.com/blog/visualizing-distributions-3">very cool article</a> which draws an inspiring inventory of distributions visualizations.
-    It motivated me to draw many visualizations to compare two distributions.
+    I have recently read this <a href="https://www.darkhorseanalytics.com/blog/visualizing-distributions-3">very cool article</a> 
+    which draws an inventory of distributions visualizations.
+    It inspired me to draw many visualizations to compare two distributions.
     Listing many visualizations for the same message is actually a very good creativity exercise. 
     I find it funny and I really encourage you to try it. 
     <br>
     <br>
     For this experiment, I chose to compare the average hourly wages of French town by gender.
-    To simplify the visualization, I extract a random sample of 25 towns.
-    Thus, <span style="font-weight: 400;">I get the distribution of 25 men hourly average wages, and 25 women hourly average wages</span>. 
-    I got the data from <a href=https://www.insee.fr/fr/statistiques/2021266>Insee</a> and prepare its
+    To simplify the visualization, I extracted a random sample of 25 towns.
+    Thus, <span style="font-weight: 400;">I got the distribution of 25 men hourly average wages and 25 women hourly average wages</span>. 
+    I got the data from <a href=https://www.insee.fr/fr/statistiques/2021266>Insee</a>, prepared it
     with <a href="https://github.com/rhuille/rhuille.github.io/blob/master/scripts/pandas_script.py">this pandas script</a>
     and I used <a href="https://toucantoco.com">the awesome Toucan Toco chart library</a>.
     <br>
@@ -44,9 +45,9 @@
     Simple plot
 </h2>
 <p>
-    Each datum are represented by a point. Very simple and quite straightforward.
+    Each datum is represented by a point. Very simple and quite straightforward.
     I have tried to handle the overlap, without much success with color opacity.
-    This first preview let us presume that men hourly wage tend to be higher than women - inside the 50 random sample.
+    This first preview let us presume that men hourly wage tends to be higher than women's - inside the 50 random sample.
 </p>
 
 <div class="chart-container">
@@ -68,8 +69,8 @@
 </h2>
 
 <p>
-    Very easy to understand, this is my favorite visualization. 
-    Human love sorting stuff. It creates order and harmony without mislead the data.
+    Very easy to understand, this is my favorite visualization.
+    Humans love sorting stuff. It creates order and harmony without misrepresenting the data.
     Women are much more present on the right (small wages) and men are more present on the left (higher wages)
 </p>
 <div class="chart-container">
@@ -77,10 +78,10 @@
 </div>
 
 <p>
-    It's also possible to turn the bar in order to highlighting the top or the bottom.
+    It's also possible to turn the bars in order to highlight the top or the bottom.
     Use the button <span class="horizontal-bar-chart__variation-legend-arrow-up-down"><img src="https://demo-embed.toucantoco.com/images/caret.617a62d6.svg"></span> 
     to visualize either top or bottom.
-    I added the median of the total sample. Much more blue bar above the median and much more red below the median.
+    I added the median of the total sample. Much more blue bar above the median and much more red below.
 </p>
 <div class="chart-container" style="height: 500px;">
 <script async src="https://demo-embed.toucantoco.com/scripts/embedLauncher.js?id=63fe058e-c220-485f-b5de-560a878e9621&view=Both&report=Both" type="text/javascript"></script>
@@ -95,7 +96,7 @@
 </h2>
 
 <p>
-    I think this is the most efficient methods. Comparing smallest value of each distribution, then second smallest value, and any n-th value of both distribution.
+    I think this is the most efficient method. Comparing smallest value of each distribution, then second smallest value, and any n-th value of both distributions.
     Here we see that smallest men hourly wage is greater than the smallest women hourly wage. Same, for second smallest, and same for all.
 </p>
 
@@ -106,7 +107,7 @@
 
 <p>
     We can replace bars by with lines. It gives continuity to the data which is not really suitable here.
-    But it make very clear that men wage (blue line) is above the women wage (red line).
+    But it make very clear that men wage (blue line) is above women wage (red line).
 </p>
 <div class="chart-container">
 <script async src="https://demo-embed.toucantoco.com/scripts/embedLauncher.js?id=61b7ada8-88a0-407f-aa9d-501bb2d49546&view=Both&report=Both" type="text/javascript"></script>
@@ -140,8 +141,8 @@
     Cumulative distribution function
 </h2>
 <p>
-    "How many observations below this hourly wage ?" ...answer the cumulative distribution function answer.
-    Looking at this chart, I can tell you that around 20 women and 10 men got an hourly wage below 14&euro;
+    The cumulative distribution function answers this question: "How many observations below this hourly wage ?".
+    Looking at this chart, I can tell you that around 20 women and 10 men get an hourly wage below 14&euro;
 </p>
 <div class="chart-container">
 <script async src="https://demo-embed.toucantoco.com/scripts/embedLauncher.js?id=de258c30-6fae-497b-b8ad-37db96f5229e&view=Both&report=Both" type="text/javascript"></script>
@@ -153,12 +154,12 @@
 </h2>
 <p>
     - Listing many visualizations for the same message is actually a very good creativity exercise.
-    I find it funny and I really encourage you to try it. Tell me which 
+    I find it funny and I really encourage you to try it. Tell me your favorite visualization or create a new one !
     <br>
     <br>
     - Organizing the visualizations by the dimension added to the data -
-    <i>the rank</i> when you sort your data, <i>the count</i> for histogram - really helps to understand what is happing in your visualizations. 
-    It separate the concern of dimensions from the concern of shapes and colors.
+    <i>the rank</i> when you sort your data, <i>the count</i> for histogram - really helps to understand what is happening in your visualizations. 
+    It separates the concern of dimensions from the concern of shapes and colors.
     <br>
     <br>
     - In my random sample, we see big inequalities between men wage and women wage. Actually no matter the random sample I took,
